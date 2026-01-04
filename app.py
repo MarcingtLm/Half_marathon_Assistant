@@ -101,18 +101,11 @@ def get_api_key_securely():
                         if len(st.session_state["messages"]) == 0:
                             st.session_state["messages"].append({
                                 "role": "assistant",
-                                "content": """Cześć! Jestem Twoją pomocą naukową w przygotowaniach do Półmaratonu! 
+                                "content": """Cześć! Jestem Twoją pomocą naukową w przygotowaniach do Półmaratonu! Pomogę Ci przewidzieć czas na półmaraton z pomocą sztucznej inteligencji i stworzę dla Ciebie profesjonalny plan treningowy! 
 
-Pomogę Ci przewidzieć czas na półmaraton z pomocą sztucznej inteligencji i stworzę dla Ciebie profesjonalny plan treningowy! 
+**Podaj mi:** Imię, Wiek, Czas na 5 km
 
-**Podaj mi:**
-• Imię
-• Wiek
-• Czas na 5 km
-
-**Przykład:** Cześć! Jestem Ania, mam 31 lat i biegnę 5km w 21 minut i 40 sekund
-
-💡 **Sprawdź** panel boczny po lewej stronie, gdzie znajdziesz dodatkowe informacje!""",
+**Przykład:** Cześć! Jestem Ania, mam 31 lat i biegnę 5km w 21 minut i 40 sekund""",
                                 "timestamp": datetime.now()
                             })
                         
@@ -236,56 +229,56 @@ def display_chat_message(message):
         st.markdown(f"""
         <div style='display: flex; 
                     justify-content: flex-end; 
-                    margin: 25px 0;
+                    margin: 10px 0;
                     animation: fadeInUp 0.5s ease-out;'>
             <div style='background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); 
                         color: white; 
-                        padding: 18px 24px; 
-                        border-radius: 25px 25px 5px 25px; 
+                        padding: 10px 16px; 
+                        border-radius: 20px 20px 5px 20px; 
                         max-width: 70%; 
-                        box-shadow: 0 4px 15px rgba(79, 172, 254, 0.3);
+                        box-shadow: 0 2px 8px rgba(79, 172, 254, 0.3);
                         border: 2px solid rgba(255, 255, 255, 0.2);'>
-                <div style='font-size: 1em; 
-                            line-height: 1.6; 
+                <div style='font-size: 0.9em; 
+                            line-height: 1.4; 
                             font-weight: 500;'>{content}</div>
             </div>
-            <div style='margin-left: 12px; 
-                        font-size: 2.2em; 
+            <div style='margin-left: 8px; 
+                        font-size: 1.8em; 
                         background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-                        width: 50px;
-                        height: 50px;
+                        width: 40px;
+                        height: 40px;
                         border-radius: 50%;
                         display: flex;
                         align-items: center;
                         justify-content: center;
-                        box-shadow: 0 4px 10px rgba(30, 60, 114, 0.4);'>🤗</div>
+                        box-shadow: 0 2px 6px rgba(30, 60, 114, 0.4);'>🤗</div>
         </div>
         """, unsafe_allow_html=True)
     else:
         st.markdown(f"""
         <div style='display: flex; 
                     justify-content: flex-start; 
-                    margin: 25px 0;
+                    margin: 10px 0;
                     animation: fadeInUp 0.5s ease-out;'>
-            <div style='margin-right: 12px; 
-                        font-size: 2.2em;
+            <div style='margin-right: 8px; 
+                        font-size: 1.8em;
                         background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-                        width: 50px;
-                        height: 50px;
+                        width: 40px;
+                        height: 40px;
                         border-radius: 50%;
                         display: flex;
                         align-items: center;
                         justify-content: center;
-                        box-shadow: 0 4px 10px rgba(79, 172, 254, 0.4);'>🧠</div>
+                        box-shadow: 0 2px 6px rgba(79, 172, 254, 0.4);'>🧠</div>
             <div style='background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); 
                         color: #2d3748; 
-                        padding: 18px 24px; 
-                        border-radius: 25px 25px 25px 5px; 
-                        max-width: 55%; 
-                        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+                        padding: 10px 16px; 
+                        border-radius: 20px 20px 20px 5px; 
+                        max-width: 60%; 
+                        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
                         border: 2px solid rgba(102, 126, 234, 0.1);'>
-                <div style='font-size: 0.95em; 
-                            line-height: 1.6; 
+                <div style='font-size: 0.9em; 
+                            line-height: 1.4; 
                             white-space: pre-wrap;
                             font-weight: 500;'>{content}</div>
             </div>
@@ -1041,32 +1034,24 @@ def main():
     
     st.markdown("""
     <div style='text-align: center; 
-                margin-bottom: 20px; 
-                padding: 20px;
+                margin-bottom: 10px; 
+                padding: 12px 15px;
                 background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
-                border-radius: 15px;
+                border-radius: 12px;
                 border: 2px solid rgba(102, 126, 234, 0.2);'>
         <h1 style='color: #667eea; 
-                   margin-bottom: 8px; 
+                   margin: 0 0 5px 0; 
                    font-weight: 800; 
-                   font-size: 2em;
+                   font-size: 1.5em;
                    letter-spacing: 1px;'>
             Asystent w przygotowaniach do Półmaratonu
         </h1>
         <p style='color: #666; 
-                  font-size: 1em; 
-                  margin: 5px 0;
+                  font-size: 0.85em; 
+                  margin: 0;
                   font-weight: 500;'>
-            Oszacuj swój czas na półmaratonie z pomocą algorytmów sztucznej inteligencji
+            📊 Wytrenowany na danych Półmaratonu Wrocławskiego
         </p>
-        <div style='margin-top: 10px; 
-                    padding: 8px 15px; 
-                    background: rgba(102, 126, 234, 0.1);
-                    border-radius: 15px;
-                    display: inline-block;
-                    font-size: 0.9em;'>
-            <span style='color: #667eea; font-weight: 600;'>📊 Wytrenowany na danych Półmaratonu Wrocławskiego</span>
-        </div>
     </div>
     """, unsafe_allow_html=True)
     
