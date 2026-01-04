@@ -101,7 +101,7 @@ def get_api_key_securely():
                         if len(st.session_state["messages"]) == 0:
                             st.session_state["messages"].append({
                                 "role": "assistant",
-                                "content": """Cześć! <strong>Jestem Twoją pomocą naukową w przygotowaniach do Półmaratonu!</strong> Pomogę Ci przewidzieć czas na półmaraton z pomocą sztucznej inteligencji i stworzę dla Ciebie profesjonalny plan treningowy!<br><br><br><strong>Podaj mi:</strong>
+                                "content": """Cześć! <strong>Jestem Twoją pomocą naukową w przygotowaniach do Półmaratonu!</strong> Pomogę Ci przewidzieć czas na półmaraton z pomocą sztucznej inteligencji i stworzę dla Ciebie profesjonalny plan treningowy!<br><br><strong>Podaj mi:</strong>
 • Imię
 • Wiek
 • Czas na 5 km
