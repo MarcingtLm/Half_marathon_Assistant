@@ -12,15 +12,11 @@ try:
 except ImportError:
     print("ℹ️ python-dotenv not installed - using system environment variables (production)")
 
-try:
-    from langfuse import observe
-    LANGFUSE_AVAILABLE = True
-except ImportError:
-    LANGFUSE_AVAILABLE = False
-    def observe(name=None, **kwargs):
-        def decorator(func):
-            return func
-        return decorator
+LANGFUSE_AVAILABLE = False
+def observe(name=None, **kwargs):
+    def decorator(func):
+        return func
+    return decorator
 
 st.set_page_config(
     page_title="Asystent Półmaratoński",
@@ -29,34 +25,9 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-try:
-    from langfuse import Langfuse
-    public_key = os.environ.get("LANGFUSE_PUBLIC_KEY") or os.getenv("LANGFUSE_PUBLIC_KEY")
-    secret_key = os.environ.get("LANGFUSE_SECRET_KEY") or os.getenv("LANGFUSE_SECRET_KEY")
-    host = os.environ.get("LANGFUSE_HOST") or os.environ.get("LANGFUSE_BASE_URL") or os.getenv("LANGFUSE_HOST") or os.getenv("LANGFUSE_BASE_URL")
-    
-    if public_key and secret_key:
-        if host:
-            langfuse = Langfuse(
-                public_key=public_key,
-                secret_key=secret_key,
-                host=host
-            )
-        else:
-            langfuse = Langfuse(
-                public_key=public_key,
-                secret_key=secret_key
-            )
-        LANGFUSE_ENABLED = True
-        print("✅ Langfuse enabled - monitoring active")
-    else:
-        LANGFUSE_ENABLED = False
-        langfuse = None
-        print("ℹ️ Langfuse disabled - running without monitoring")
-except Exception as e:
-    LANGFUSE_ENABLED = False
-    langfuse = None
-    print(f"⚠️ Langfuse initialization failed: {e}")
+LANGFUSE_ENABLED = False
+langfuse = None
+print("ℹ️ Langfuse disabled - running without monitoring")
 
 def init_session_state():
     if "api_key_verified" not in st.session_state:
@@ -900,19 +871,6 @@ def main():
     
     api_key = get_api_key_securely()
     
-    if LANGFUSE_ENABLED and "user_id" in st.session_state:
-        try:
-            from langfuse import langfuse_context
-            langfuse_context.update_current_trace(
-                user_id=st.session_state["user_id"],
-                session_id=st.session_state.get("user_id"),
-                metadata={
-                    "app_version": "2.0",
-                    "app_name": "Asystent Półmaratoński"
-                }
-            )
-        except:
-            pass
     
     display_sidebar()
     
@@ -1345,11 +1303,6 @@ Generuję spersonalizowany plan treningowy... ⏳"""
             st.session_state["prediction_data"] = None
             st.rerun()
     
-    if LANGFUSE_ENABLED and langfuse:
-        try:
-            langfuse.flush()
-        except:
-            pass
 
 if __name__ == "__main__":
     main()
