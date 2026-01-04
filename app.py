@@ -138,12 +138,8 @@ def load_model():
 
 @observe(name="extract_user_data")
 def extract_user_data(user_text, api_key):
-    if LANGFUSE_AVAILABLE:
-        from langfuse.openai import OpenAI as LangfuseOpenAI
-        client = LangfuseOpenAI(api_key=api_key)
-    else:
-        from openai import OpenAI as StandardOpenAI
-        client = StandardOpenAI(api_key=api_key)
+    from openai import OpenAI as StandardOpenAI
+    client = StandardOpenAI(api_key=api_key)
     
     system_prompt = """Jesteś asystentem, który wyłuskuje dane z tekstu użytkownika.
     Szukasz następujących informacji:
@@ -302,12 +298,8 @@ def generate_personalized_training_plan(data, predicted_seconds, api_key):
     Generuje spersonalizowany plan treningowy za pomocą OpenAI API
     """
     try:
-        if LANGFUSE_AVAILABLE:
-            from langfuse.openai import OpenAI as LangfuseOpenAI
-            client = LangfuseOpenAI(api_key=api_key)
-        else:
-            from openai import OpenAI as StandardOpenAI
-            client = StandardOpenAI(api_key=api_key)
+        from openai import OpenAI as StandardOpenAI
+        client = StandardOpenAI(api_key=api_key)
         
         age = data.get('Wiek', 'nieznany')
         gender = data.get('Płeć', 'nieznana')
@@ -415,12 +407,8 @@ def answer_followup_question(user_question, prediction_data, api_key):
     Odpowiada na pytania follow-up użytkownika po otrzymaniu predykcji
     """
     try:
-        if LANGFUSE_AVAILABLE:
-            from langfuse.openai import OpenAI as LangfuseOpenAI
-            client = LangfuseOpenAI(api_key=api_key)
-        else:
-            from openai import OpenAI as StandardOpenAI
-            client = StandardOpenAI(api_key=api_key)
+        from openai import OpenAI as StandardOpenAI
+        client = StandardOpenAI(api_key=api_key)
         
         user_data = prediction_data.get("user_data", {})
         predicted_seconds = prediction_data.get("predicted_time", 0)
