@@ -101,9 +101,14 @@ def get_api_key_securely():
                         if len(st.session_state["messages"]) == 0:
                             st.session_state["messages"].append({
                                 "role": "assistant",
-                                "content": """Cześć! Jestem Twoją pomocą naukową w przygotowaniach do Półmaratonu! Pomogę Ci przewidzieć czas na półmaraton z pomocą sztucznej inteligencji i stworzę dla Ciebie profesjonalny plan treningowy! 
+                                "content": """Cześć! **Jestem Twoją pomocą naukową** w przygotowaniach do Półmaratonu! Pomogę Ci przewidzieć czas na półmaraton z pomocą sztucznej inteligencji i stworzę dla Ciebie profesjonalny plan treningowy! 
 
-**Podaj mi:** Imię, Wiek, Czas na 5 km
+
+**Podaj mi:** 
+
+Imię, 
+Wiek, 
+Czas na 5 km
 
 **Przykład:** Cześć! Jestem Ania, mam 31 lat i biegnę 5km w 21 minut i 40 sekund""",
                                 "timestamp": datetime.now()
