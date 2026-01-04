@@ -104,9 +104,7 @@ def get_api_key_securely():
                                 "content": """Cześć! <strong>Jestem Twoją pomocą naukową w przygotowaniach do Półmaratonu!</strong> Pomogę Ci przewidzieć czas na półmaraton z pomocą sztucznej inteligencji i stworzę dla Ciebie profesjonalny plan treningowy!<br><br><strong>Podaj mi:</strong>
 • Imię
 • Wiek
-• Czas na 5 km
-
-<strong>Przykład:</strong> Cześć! Jestem Ania, mam 31 lat i biegnę 5km w 21 minut i 40 sekund""",
+• Czas na 5 km<br><br><strong>Przykład:</strong> Cześć! Jestem Ania, mam 31 lat i biegnę 5km w 21 minut i 40 sekund""",
                                 "timestamp": datetime.now()
                             })
                         
