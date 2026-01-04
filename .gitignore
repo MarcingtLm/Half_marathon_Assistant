@@ -1,0 +1,57 @@
+# Folder with development leftovers (not needed for deployment)
+Pozostalosci_po_tworzeniu/
+
+.env
+.env.local
+.env.*.local
+
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+venv/
+ENV/
+env/
+.venv
+
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+.ipynb_checkpoints
+*.ipynb_checkpoints/
+
+# *.pkl
+# *.joblib
+# *.h5
+
+# *.csv
+# *.xlsx
+# *.json
+
+.DS_Store
+Thumbs.db
+
+.streamlit/secrets.toml
+
+*.log
+*_backup.py
