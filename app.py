@@ -12,11 +12,15 @@ try:
 except ImportError:
     print("ℹ️ python-dotenv not installed - using system environment variables (production)")
 
-LANGFUSE_AVAILABLE = False
-def observe(name=None, **kwargs):
-    def decorator(func):
-        return func
-    return decorator
+try:
+    from langfuse import observe
+    LANGFUSE_AVAILABLE = True
+except ImportError:
+    LANGFUSE_AVAILABLE = False
+    def observe(name=None, **kwargs):
+        def decorator(func):
+            return func
+        return decorator
 
 st.set_page_config(
     page_title="Asystent Półmaratoński",
@@ -25,9 +29,34 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-LANGFUSE_ENABLED = False
-langfuse = None
-print("ℹ️ Langfuse disabled - running without monitoring")
+try:
+    from langfuse import Langfuse
+    public_key = os.environ.get("LANGFUSE_PUBLIC_KEY") or os.getenv("LANGFUSE_PUBLIC_KEY")
+    secret_key = os.environ.get("LANGFUSE_SECRET_KEY") or os.getenv("LANGFUSE_SECRET_KEY")
+    host = os.environ.get("LANGFUSE_HOST") or os.environ.get("LANGFUSE_BASE_URL") or os.getenv("LANGFUSE_HOST") or os.getenv("LANGFUSE_BASE_URL")
+    
+    if public_key and secret_key:
+        if host:
+            langfuse = Langfuse(
+                public_key=public_key,
+                secret_key=secret_key,
+                host=host
+            )
+        else:
+            langfuse = Langfuse(
+                public_key=public_key,
+                secret_key=secret_key
+            )
+        LANGFUSE_ENABLED = True
+        print("✅ Langfuse enabled - monitoring active")
+    else:
+        LANGFUSE_ENABLED = False
+        langfuse = None
+        print("ℹ️ Langfuse disabled - running without monitoring")
+except Exception as e:
+    LANGFUSE_ENABLED = False
+    langfuse = None
+    print(f"⚠️ Langfuse initialization failed: {e}")
 
 def init_session_state():
     if "api_key_verified" not in st.session_state:
@@ -109,8 +138,8 @@ def load_model():
 
 @observe(name="extract_user_data")
 def extract_user_data(user_text, api_key):
-    from openai import OpenAI as StandardOpenAI
-    client = StandardOpenAI(api_key=api_key)
+    import openai
+    client = openai.OpenAI(api_key=api_key)
     
     system_prompt = """Jesteś asystentem, który wyłuskuje dane z tekstu użytkownika.
     Szukasz następujących informacji:
@@ -269,8 +298,8 @@ def generate_personalized_training_plan(data, predicted_seconds, api_key):
     Generuje spersonalizowany plan treningowy za pomocą OpenAI API
     """
     try:
-        from openai import OpenAI as StandardOpenAI
-        client = StandardOpenAI(api_key=api_key)
+        import openai
+        client = openai.OpenAI(api_key=api_key)
         
         age = data.get('Wiek', 'nieznany')
         gender = data.get('Płeć', 'nieznana')
@@ -378,8 +407,8 @@ def answer_followup_question(user_question, prediction_data, api_key):
     Odpowiada na pytania follow-up użytkownika po otrzymaniu predykcji
     """
     try:
-        from openai import OpenAI as StandardOpenAI
-        client = StandardOpenAI(api_key=api_key)
+        import openai
+        client = openai.OpenAI(api_key=api_key)
         
         user_data = prediction_data.get("user_data", {})
         predicted_seconds = prediction_data.get("predicted_time", 0)
@@ -871,6 +900,19 @@ def main():
     
     api_key = get_api_key_securely()
     
+    if LANGFUSE_ENABLED and "user_id" in st.session_state:
+        try:
+            from langfuse import langfuse_context
+            langfuse_context.update_current_trace(
+                user_id=st.session_state["user_id"],
+                session_id=st.session_state.get("user_id"),
+                metadata={
+                    "app_version": "2.0",
+                    "app_name": "Asystent Półmaratoński"
+                }
+            )
+        except:
+            pass
     
     display_sidebar()
     
@@ -1303,6 +1345,11 @@ Generuję spersonalizowany plan treningowy... ⏳"""
             st.session_state["prediction_data"] = None
             st.rerun()
     
+    if LANGFUSE_ENABLED and langfuse:
+        try:
+            langfuse.flush()
+        except:
+            pass
 
 if __name__ == "__main__":
     main()
