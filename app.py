@@ -925,42 +925,31 @@ def main():
     
     .stTextInput > div > div > input {
         border-radius: 25px;
-        border: 3px solid #667eea !important;
-        padding: 15px 25px !important;
-        font-size: 1.1em !important;
+        border: 2px solid #e0e0e0;
+        padding: 12px 20px;
+        font-size: 1em;
         transition: all 0.3s;
-        background: white !important;
-        color: #333 !important;
-        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.2) !important;
     }
     
     .stTextInput > div > div > input:focus {
-        border-color: #4facfe !important;
-        box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.3) !important;
-        transform: translateY(-2px);
-    }
-    
-    .stTextInput > div > div > input::placeholder {
-        color: #999 !important;
-        font-weight: 500;
+        border-color: #667eea;
+        box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
     }
     
     .stButton > button {
         border-radius: 25px;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
-        color: white !important;
-        border: none !important;
-        padding: 15px 30px !important;
-        font-weight: 700 !important;
-        font-size: 1.1em !important;
+        background: linear-gradient(135deg, #14407a 0%, #0a2a52 100%);
+        color: white;
+        border: none;
+        padding: 12px 30px;
+        font-weight: 600;
         transition: all 0.3s;
-        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4) !important;
+        box-shadow: 0 4px 15px rgba(20, 64, 122, 0.3);
     }
     
     .stButton > button:hover {
         transform: translateY(-2px);
-        box-shadow: 0 6px 25px rgba(102, 126, 234, 0.6) !important;
-        background: linear-gradient(135deg, #764ba2 0%, #667eea 100%) !important;
+        box-shadow: 0 6px 20px rgba(20, 64, 122, 0.4);
     }
     
     .stButton > button:active {
