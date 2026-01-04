@@ -4,5 +4,5 @@ numpy==1.26.4
 scikit-learn==1.5.2
 pycaret==3.3.2
 openai==1.54.5
-langfuse==2.52.3
+langfuse==3.11.2
 python-dotenv==1.0.1
