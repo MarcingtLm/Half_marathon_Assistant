@@ -101,7 +101,8 @@ def get_api_key_securely():
                         if len(st.session_state["messages"]) == 0:
                             st.session_state["messages"].append({
                                 "role": "assistant",
-                                "content": """Cześć! Jestem Twoją pomocą naukową w przygotowaniach do Półmaratonu! Pomogę Ci przewidzieć czas na półmaraton z pomocą sztucznej inteligencji i stworzę dla Ciebie profesjonalny plan treningowy! 
+                                "content": """Cześć! **Jestem Twoją pomocą naukową w przygotowaniach do Półmaratonu!** Pomogę Ci przewidzieć czas na półmaraton z pomocą sztucznej inteligencji i stworzę dla Ciebie profesjonalny plan treningowy! 
+
 
 **Podaj mi:**
 • Imię
@@ -1105,25 +1106,25 @@ def main():
         st.markdown("<div style='margin: 10px 0;'></div>", unsafe_allow_html=True)
         
         st.markdown("""
-        <div style='background: rgba(102, 126, 234, 0.15); 
+        <div style='background: rgba(102, 126, 234, 0.2); 
                     padding: 15px 20px; 
                     border-radius: 12px; 
                     border-left: 4px solid #667eea;'>
             <div style='font-weight: 700; color: #667eea; margin-bottom: 12px; font-size: 1em;'>
                 ⚡ Szybkie Fakty o Półmaratonie
             </div>
-            <div style='display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 15px; color: #1a1a1a;'>
+            <div style='display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 15px; color: white;'>
                 <div style='font-size: 0.9em;'>
-                    <strong style='color: #2d3748;'>📏 Dystans:</strong> 21.0975 km
+                    <strong style='color: white;'>📏 Dystans:</strong> 21.0975 km
                 </div>
                 <div style='font-size: 0.9em;'>
-                    <strong style='color: #2d3748;'>⏱️ Średni czas:</strong> 1h 45min - 2h 15min
+                    <strong style='color: white;'>⏱️ Średni czas:</strong> 1h 45min - 2h 15min
                 </div>
                 <div style='font-size: 0.9em;'>
-                    <strong style='color: #2d3748;'>🏃 Tempo:</strong> ~5:00 - 6:30 min/km
+                    <strong style='color: white;'>🏃 Tempo:</strong> ~5:00 - 6:30 min/km
                 </div>
                 <div style='font-size: 0.9em;'>
-                    <strong style='color: #2d3748;'>🔥 Kalorie:</strong> ~1300-1800 kcal
+                    <strong style='color: white;'>🔥 Kalorie:</strong> ~1300-1800 kcal
                 </div>
             </div>
         </div>
