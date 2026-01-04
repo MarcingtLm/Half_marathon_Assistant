@@ -140,11 +140,7 @@ def load_model():
 
 @observe(name="extract_user_data")
 def extract_user_data(user_text, api_key):
-    client = OpenAI(
-        api_key=api_key,
-        timeout=30.0,
-        max_retries=2
-    )
+    client = OpenAI(api_key=api_key)
     
     system_prompt = """Jesteś asystentem, który wyłuskuje dane z tekstu użytkownika.
     Szukasz następujących informacji:
@@ -170,8 +166,7 @@ def extract_user_data(user_text, api_key):
                 {"role": "user", "content": user_text}
             ],
             temperature=0,
-            timeout=30,
-            name="extract-user-data"
+            timeout=30
         )
         
         result = response.choices[0].message.content.strip()
@@ -378,8 +373,7 @@ WAŻNE: Bądź KONKRETNY i KRÓTKI. Każda sekcja max 4-5 linijek."""
                 {"role": "user", "content": prompt}
             ],
             temperature=0.7,
-            max_tokens=1500,
-            name="generate-training-plan"
+            max_tokens=1500
         )
         
         content = response.choices[0].message.content
@@ -451,8 +445,7 @@ Odpowiadaj na pytania użytkownika w sposób:
                 {"role": "user", "content": user_question}
             ],
             temperature=0.7,
-            max_tokens=1000,
-            name="answer-followup"
+            max_tokens=1000
         )
         
         return response.choices[0].message.content
