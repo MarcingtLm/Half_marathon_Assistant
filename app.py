@@ -1078,6 +1078,8 @@ def main():
         
     st.markdown("---")
     
+    st.markdown("<div style='margin: 40px 0;'></div>", unsafe_allow_html=True)
+    
     default_value = st.session_state.get("quick_input", "")
     if default_value:
         st.session_state.pop("quick_input", "")
@@ -1103,25 +1105,25 @@ def main():
         st.markdown("<div style='margin: 10px 0;'></div>", unsafe_allow_html=True)
         
         st.markdown("""
-        <div style='background: rgba(102, 126, 234, 0.05); 
+        <div style='background: rgba(102, 126, 234, 0.15); 
                     padding: 15px 20px; 
                     border-radius: 12px; 
                     border-left: 4px solid #667eea;'>
             <div style='font-weight: 700; color: #667eea; margin-bottom: 12px; font-size: 1em;'>
                 ⚡ Szybkie Fakty o Półmaratonie
             </div>
-            <div style='display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 15px; color: #333;'>
+            <div style='display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 15px; color: #1a1a1a;'>
                 <div style='font-size: 0.9em;'>
-                    <strong>📏 Dystans:</strong> 21.0975 km
+                    <strong style='color: #2d3748;'>📏 Dystans:</strong> 21.0975 km
                 </div>
                 <div style='font-size: 0.9em;'>
-                    <strong>⏱️ Średni czas:</strong> 1h 45min - 2h 15min
+                    <strong style='color: #2d3748;'>⏱️ Średni czas:</strong> 1h 45min - 2h 15min
                 </div>
                 <div style='font-size: 0.9em;'>
-                    <strong>🏃 Tempo:</strong> ~5:00 - 6:30 min/km
+                    <strong style='color: #2d3748;'>🏃 Tempo:</strong> ~5:00 - 6:30 min/km
                 </div>
                 <div style='font-size: 0.9em;'>
-                    <strong>🔥 Kalorie:</strong> ~1300-1800 kcal
+                    <strong style='color: #2d3748;'>🔥 Kalorie:</strong> ~1300-1800 kcal
                 </div>
             </div>
         </div>
