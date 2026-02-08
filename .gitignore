@@ -1,6 +1,6 @@
 # Folder with development leftovers (not needed for deployment)
 Pozostalosci_po_tworzeniu/
-
+Work_leftovers/
 .env
 .env.local
 .env.*.local

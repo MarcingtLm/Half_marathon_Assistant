@@ -23,7 +23,7 @@ except ImportError:
         return decorator
 
 st.set_page_config(
-    page_title="Asystent Półmaratoński",
+    page_title="Trener Półmaratoński",
     page_icon="🏃",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -599,7 +599,7 @@ def display_sidebar():
         <div style='text-align: center; padding: 20px 0; border-bottom: 2px solid rgba(255, 255, 255, 0.3);'>
             <div style='font-size: 3em; margin-bottom: 10px;'>🏃‍♂️</div>
             <h2 style='color: white; margin: 0; font-weight: 700; letter-spacing: 1px; font-size: 1.2em;'>Dowiedz się, jakie są Twoje możliwości</h2>
-            <p style='color: rgba(255, 255, 255, 0.9); font-size: 0.85em; margin-top: 8px; line-height: 1.4;'>Niech asystent pomoże ci wyśrubować nowy personal best!</p>
+            <p style='color: rgba(255, 255, 255, 0.9); font-size: 0.85em; margin-top: 8px; line-height: 1.4;'>Niech ten współzawodnik pomoże ci wyśrubować nowy personal best!</p>
         </div>
         """, unsafe_allow_html=True)
         
@@ -788,7 +788,7 @@ def display_sidebar():
             
             export_text = f"""
 ╔═══════════════════════════════════════════════════════╗
-║     WYNIK PREDYKCJI - ASYSTENT PÓŁMARATOŃSKI         ║
+║     WYNIK PREDYKCJI - TRENER PÓŁMARATOŃSKI         ║
 ╚═══════════════════════════════════════════════════════╝
 
 📅 Data: {datetime.now().strftime('%Y-%m-%d %H:%M')}
@@ -815,7 +815,7 @@ def display_sidebar():
 🏃 Powodzenia w treningach i na biegu! 🏃
 
 ═══════════════════════════════════════════════════════
-Wygenerowano przez Asystent Półmaratoński v1.0
+Wygenerowano przez Trener Półmaratoński v1.0
 Powered by OpenAI & PyCaret ML model
 ═══════════════════════════════════════════════════════
 """
@@ -834,14 +834,14 @@ Powered by OpenAI & PyCaret ML model
             with col_exp2:
                 conversation_text = f"""
 ╔═══════════════════════════════════════════════════════╗
-║     PEŁNA KONWERSACJA - ASYSTENT PÓŁMARATOŃSKI       ║
+║     PEŁNA KONWERSACJA - TRENER PÓŁMARATOŃSKI       ║
 ╚═══════════════════════════════════════════════════════╝
 
 📅 Data: {datetime.now().strftime('%Y-%m-%d %H:%M')}
 
 """
                 for msg in st.session_state["messages"]:
-                    role = "UŻYTKOWNIK" if msg["role"] == "user" else "ASYSTENT"
+                    role = "UŻYTKOWNIK" if msg["role"] == "user" else "TRENER"
                     timestamp = msg.get("timestamp", datetime.now()).strftime('%H:%M:%S')
                     conversation_text += f"""
 ┌─────────────────────────────────────────────────────┐
@@ -854,7 +854,7 @@ Powered by OpenAI & PyCaret ML model
                 
                 conversation_text += f"""
 ═══════════════════════════════════════════════════════
-Wygenerowano przez Asystent Półmaratoński v1.0
+Wygenerowano przez Trener Półmaratoński v1.0
 Powered by OpenAI & PyCaret ML model
 ═══════════════════════════════════════════════════════
 """
@@ -900,7 +900,7 @@ def main():
                 session_id=st.session_state.get("user_id"),
                 metadata={
                     "app_version": "2.0",
-                    "app_name": "Asystent Półmaratoński"
+                    "app_name": "Trener Półmaratoński"
                 }
             )
         except:
