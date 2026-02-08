@@ -1,8 +1,10 @@
 # ✅ Deployment Checklist
 
-Użyj tej checklisty przed i podczas własnego deploymentu do Digital Ocean.
+Użyj tej checklisty przed i podczas deploymentu do Digital Ocean.
 
-📋 Przed deploymentem
+
+📋 **Przed deploymentem**
+
 
 1. Weryfikacja plików
 - [ ] `app.py` - aplikacja główna
@@ -13,11 +15,13 @@ Użyj tej checklisty przed i podczas własnego deploymentu do Digital Ocean.
 - [ ] `Procfile` - instrukcje uruchomienia
 - [ ] Model ML (`.pkl`) - jeśli jest potrzebny
 
+
 2. Sprawdzenie bezpieczeństwa
 - [ ] Plik `.env` jest w `.gitignore`
 - [ ] Uruchom: `git status` - upewnij się, że `.env` NIE jest na liście
 - [ ] Brak hardcoded API keys w kodzie
 - [ ] Brak haseł w kodzie
+
 
 3. Test lokalny
 - [ ] Aplikacja działa lokalnie: `streamlit run app.py`
@@ -26,12 +30,15 @@ Użyj tej checklisty przed i podczas własnego deploymentu do Digital Ocean.
 - [ ] Wizualizacje działają
 - [ ] Brak błędów w konsoli
 
-🐙 GitHub
+
+🐙 **GitHub**
+
 
 4. Przygotowanie repozytorium
 - [ ] Utworzono nowe repo na GitHub
 - [ ] Nazwa: `halfmarathon-assistant` (lub inna)
 - [ ] Public lub Private (wybrane)
+
 
 5. Push do GitHub
 ```bash
@@ -44,11 +51,14 @@ git branch -M main
 git push -u origin main
 ```
 
+
 - [ ] Kod jest na GitHub
 - [ ] Sprawdź na GitHub - plik `.env` NIE jest widoczny
 - [ ] Wszystkie inne pliki są widoczne
 
-☁️ Digital Ocean
+
+☁️ **Digital Ocean**
+
 
 6. Utworzenie aplikacji
 - [ ] Zalogowano do Digital Ocean
@@ -58,10 +68,12 @@ git push -u origin main
 - [ ] Wybrano repozytorium: `halfmarathon-assistant`
 - [ ] Wybrano branch: `main`
 
+
 7. Konfiguracja
 - [ ] Typ: Web Service
 - [ ] Run Command: `streamlit run app.py --server.port=8080 --server.address=0.0.0.0`
 - [ ] HTTP Port: `8080`
+
 
 8. Environment Variables (OPCJONALNIE - tylko dla Langfuse)
 Jeśli używasz Langfuse:
@@ -69,19 +81,20 @@ Jeśli używasz Langfuse:
 - [ ] `LANGFUSE_SECRET_KEY` 
 - [ ] `LANGFUSE_HOST` 
 
-Jeśli NIE używasz Langfuse:
-- [ ] Pomiń ten krok - aplikacja będzie działać bez monitoringu
 
 9. Plan i region
 - [ ] Wybrano plan: Basic ($5/miesiąc) - zalecane
 - [ ] Wybrano region: Frankfurt (lub najbliższy)
 - [ ] Nazwa aplikacji: (zostaw domyślną lub zmień)
 
+
 10. Launch
 - [ ] Kliknięto: "Create Resources"
 - [ ] Czekaj 5 minut na deployment
 
-Po deploymencie
+
+**Po deploymencie**
+
 
 11. Weryfikacja
 - [ ] Status: "Deployed" (zielony)
@@ -92,16 +105,21 @@ Po deploymencie
 - [ ] Test chatbota - działa
 - [ ] Test wizualizacji - działa
 
+
 12. Monitoring
 - [ ] Sprawdź Runtime Logs - komunikaty o starcie
 - [ ] Sprawdź Metrics - użycie CPU/RAM
 - [ ] Jeśli Langfuse: sprawdź czy logi się pojawiają
 
+
 🎉 Gotowe!
+
 
 - [ ] Aplikacja działa publicznie
 
-🔄 Aktualizacje
+
+🔄 **Aktualizacje**
+
 
 Przy każdej zmianie w kodzie:
 ```bash
@@ -109,11 +127,14 @@ git add .
 git commit -m "Opis zmian"
 git push origin main
 ```
+
 - [ ] Digital Ocean automatycznie wykryje zmiany
 - [ ] Poczekaj 2-5 minut na re-deploy
 - [ ] Sprawdź czy zmiany są widoczne
 
-Troubleshooting
+
+**Troubleshooting**
+
 
 Jeśli coś nie działa:
 - [ ] Sprawdź Runtime Logs w Digital Ocean
@@ -122,7 +143,9 @@ Jeśli coś nie działa:
 - [ ] Sprawdź czy zmienne środowiskowe są ustawione
 - [ ] Zobacz `DEPLOYMENT_GUIDE.md` dla szczegółów
 
-Pomoc
+
+**Pomoc**
+
 
 Dokumentacja:
 - `README.md` - ogólna dokumentacja

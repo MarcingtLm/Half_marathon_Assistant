@@ -1,32 +1,32 @@
-# 🏃 Asystent Półmaratoński
+# 🏃 Trener Półmaratoński
 
-Aplikacja webowa do przewidywania czasu ukończenia półmaratonu z wykorzystaniem sztucznej inteligencji i machine learning.
+Aplikacja przeglądarkowa do przewidzenia czasu ukończenia półmaratonu z wykorzystaniem algorytmu Machine Learning i sztucznej Inteligencji.
 
 ## 🚀 Funkcje
 
-- **Predykcja czasu**: Przewidywanie czasu ukończenia półmaratonu na podstawie wieku, płci i czasu na 5 km
-- **Chatbot AI**: Inteligentny asystent treningowy wykorzystujący GPT-4
-- **Analiza danych**: Wizualizacje i statystyki dotyczące wyników półmaratonu
-- **Monitoring**: Integracja z Langfuse do śledzenia interakcji z AI
+- **Predykcja czasu**: Na podstawie wieku, płci i czasu na 5 km ( Algorytm ML wytrenowany na danych )
+- **Chatbot**: Inteligentny interfejs do komunikacji z użytkownikiem o jego wyniki i dalszym działaniu
+- **Analiza danych**: Wizualizacje i statystyki dotyczące wyników edycji półmaratonu Wrocławskiego
+- **Monitoring**: Integracja z Langfuse do śledzenia dryfu modelu ML/Ai oraz jego metryk
 
 ## 📋 Wymagania
 
-- Python 3.9+
-- Klucz API OpenAI (wprowadzany przez użytkownika w aplikacji)
+- Python 3.11
+- Klucz API OpenAI ( wprowadzany przez użytkownika w aplikacji )
 - Konto Langfuse do monitoringu
 
 ## 🛠️ Instalacja lokalna
 
-1. Sklonuj repozytorium:
+
+1. Utwórz środowisko conda:
 ```bash
-git clone <your-repo-url>
-cd Zadanie_domowe
+conda create -n <your-env-name> python= 3.11
 ```
 
-2. Utwórz wirtualne środowisko:
+2. Sklonuj repozytorium:
 ```bash
-python -m venv venv
-source venv/bin/activate  # Na Windows: venv\Scripts\activate
+conda activate <your-env-name>
+git clone <repo-url>
 ```
 
 3. Zainstaluj zależności:
@@ -85,7 +85,7 @@ git push -u origin main
 
 ### Krok 4: Wybór planu i deployment
 
-1. Wybierz plan (Basic - $5/miesiąc powinien wystarczyć)
+1. Wybierz plan (Basic - $5/miesiąc )
 2. Kliknij **Launch App**
 3. Poczekaj na deployment (5-10 minut)
 4. Twoja aplikacja będzie dostępna pod URL: `https://your-app-name.ondigitalocean.app`
@@ -103,7 +103,7 @@ Model został wytrenowany na danych z Półmaratonu Wrocławskiego 2024:
 - **Algorytm**: Linear Regressor
 - **Cechy wejściowe**: Płeć, Wiek, Czas na 5 km
 - **Metryka**: MAE
-- **Dane treningowe**: ~10,000 zawodników
+- **Dane treningowe**: ~13,000 zawodników
 
 ## 🤝 Wsparcie
 
