@@ -1,21 +1,21 @@
-# 🏃 Trener Półmaratoński
+#  Trener Półmaratoński
 
 Aplikacja przeglądarkowa do przewidzenia czasu ukończenia półmaratonu z wykorzystaniem algorytmu Machine Learning i sztucznej Inteligencji.
 
-## 🚀 Funkcje
+##  Funkcje
 
 - **Predykcja czasu**: Na podstawie wieku, płci i czasu na 5 km ( Algorytm ML wytrenowany na danych )
 - **Chatbot**: Inteligentny interfejs do komunikacji z użytkownikiem o jego wyniki i dalszym działaniu
 - **Analiza danych**: Wizualizacje i statystyki dotyczące wyników edycji półmaratonu Wrocławskiego
 - **Monitoring**: Integracja z Langfuse do śledzenia dryfu modelu ML/Ai oraz jego metryk
 
-## 📋 Wymagania
+##  Wymagania
 
 - Python 3.11
 - Klucz API OpenAI ( wprowadzany przez użytkownika w aplikacji )
 - Konto Langfuse do monitoringu
 
-## 🛠️ Instalacja lokalna
+##  Instalacja lokalna
 
 
 1. Utwórz środowisko conda:
@@ -46,7 +46,7 @@ LANGFUSE_HOST=https://cloud.langfuse.com
 streamlit run app.py
 ```
 
-## ☁️ Deployment na Digital Ocean App Platform
+##  Deployment na Digital Ocean App Platform
 
 ### Krok 1: Przygotowanie repozytorium GitHub
 
@@ -97,7 +97,7 @@ git push -u origin main
 - ✅ Zmienne środowiskowe Langfuse są ustawiane bezpośrednio w Digital Ocean
 - ✅ Aplikacja działa zarówno lokalnie (z `.env`) jak i w chmurze (bez `.env`)
 
-## 📊 Model ML
+##  Model ML
 
 Model został wytrenowany na danych z Półmaratonu Wrocławskiego 2024:
 - **Algorytm**: Linear Regressor
@@ -105,7 +105,7 @@ Model został wytrenowany na danych z Półmaratonu Wrocławskiego 2024:
 - **Metryka**: MAE
 - **Dane treningowe**: ~13,000 zawodników
 
-## 🤝 Wsparcie
+##  Wsparcie
 
 Jeśli masz pytania lub problemy:
 1. Sprawdź logi w Digital Ocean App Platform
